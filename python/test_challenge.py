@@ -1,13 +1,13 @@
 import unittest
 
-from challenge import generate_efficiency_report
+from challenge import load_users, generate_efficiency_report
 
 users = [
     {
-    'id': 1111,
-    'region_id': 1,
-    'tasks_completed': 10,
-    'time_taken': 500
+        'id': 1111,
+        'region_id': 1,
+        'tasks_completed': 10,
+        'time_taken': 500
     },
     {
     'id': 1112,
@@ -43,6 +43,10 @@ users = [
 
 
 class ChallengeTest(unittest.TestCase):
+    def test_load_users(self):
+        users = load_users('../input.csv')
+        self.assertEquals(users[0]['id'], '111')
+
     def test_region(self):
         region = generate_efficiency_report(users)
         self.assertEquals(region['region'], 'East')

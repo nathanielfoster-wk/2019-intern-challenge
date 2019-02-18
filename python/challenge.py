@@ -1,3 +1,16 @@
+import csv
+
+def load_users(filepath):
+    users = []
+
+    with open(filepath, "r") as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            users.append(row)
+
+    return users
+
+
 
 def generate_efficiency_report(users):
     region_efficiency = {}
@@ -40,6 +53,3 @@ def generate_efficiency_report(users):
     
     return most_efficient_region
 
-# most_efficient = generate_efficiency_report(users)
-
-# print('\nMost Efficient\n{}'.format(most_efficient_region))
