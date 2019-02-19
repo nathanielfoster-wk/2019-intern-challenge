@@ -2,51 +2,30 @@ import unittest
 
 from challenge import load_users, generate_efficiency_report
 
-users = [
-    {
-        'id': 1111,
-        'region_id': 1,
-        'tasks_completed': 10,
-        'time_taken': 500
-    },
-    {
-    'id': 1112,
-    'region_id': 1,
-    'tasks_completed': 15,
-    'time_taken': 200
-    },
-    {
-    'id': 1113,
-    'region_id': 2,
-    'tasks_completed': 5,
-    'time_taken': 300
-    },
-    {
-    'id': 1114,
-    'region_id': 2,
-    'tasks_completed': 20,
-    'time_taken': 600
-    },
-    {
-    'id': 1115,
-    'region_id': 3,
-    'tasks_completed': 12,
-    'time_taken': 300
-    },
-    {
-    'id': 1116,
-    'region_id': 3,
-    'tasks_completed': 18,
-    'time_taken': 650
-    }
-]
-
 
 class ChallengeTest(unittest.TestCase):
     def test_load_users(self):
         users = load_users('../input.csv')
-        self.assertEquals(users[0]['id'], '111')
+        self.assertEquals(users[0]['id'], 1111)
 
     def test_region(self):
-        region = generate_efficiency_report(users)
-        self.assertEquals(region['region'], 'East')
+        users = load_users('../input.csv')
+        most_efficient, least_efficient = generate_efficiency_report(users)
+
+        most_efficient_extected = {
+            'efficiency': 14,
+            'region': 'East',
+            'user_count': 2,
+            'time_taken': 700,
+            'tasks_completed': 25
+        }
+        self.assertEquals(most_efficient, most_efficient_extected)
+
+        least_efficient_expected = {
+            'efficiency': 18,
+            'region': 'Central',
+            'tasks_completed': 25,
+            'time_taken': 900,
+            'user_count': 2
+        }
+        self.assertEquals(least_efficient, least_efficient_expected)
