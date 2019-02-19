@@ -15,5 +15,8 @@
 # JS
 
 ## JS Setup
+- Install nvm
+- npm install
 
 ## JS Testing
+- npm test
