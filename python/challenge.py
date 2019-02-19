@@ -59,6 +59,4 @@ def generate_efficiency_report(users):
             if region_efficiency[region]['efficiency'] > least_efficient_region['efficiency']:
                 least_efficient_region = region_efficiency[region]
 
-    print(region_efficiency[region])
-
     return most_efficient_region, least_efficient_region
