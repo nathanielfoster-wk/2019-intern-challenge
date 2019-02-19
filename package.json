@@ -2,9 +2,9 @@
   "name": "2019-intern-challenge",
   "version": "1.0.0",
   "description": "Refactoring and bug fixing challenge for intern candidates",
-  "main": "index.js",
+  "main": "javascript/challenge.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha javascript/"
   },
   "repository": {
     "type": "git",
