@@ -1,39 +1,33 @@
 # 2019-intern-challenge
 2019 intern interview refactoring and bug fixing challenge.
 
-# Python
+## Python
 
-## Python Setup
-
+### Python Setup
 
 #### Install python3
-
-`$ brew install python3`
-
+    $ brew install python3
 
 #### Setup virtual environment
-`$ python3 -m venv .`
+    $ python3 -m venv .
+    $ source bin/activate
 
-`$ source bin/activate`
+### Python Testing 
+    $ cd python
+    $ nosetests
 
-## Python Testing 
+## JS
 
-`$ cd python`
-
-`$ nosetests`
-
-# JS
-
-## JS Setup
+### JS Setup
 
 #### Install NVM
-`$ brew install nvm`
+    $ brew install nvm
 
 #### Install Node
-`$ nvm install node`
+    $ nvm install node
 
 #### Install Project Dependencies
-`$ npm install`
+    $ npm install
 
-## JS Testing
-`$ npm test`
+### JS Testing
+    $ npm test
