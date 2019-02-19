@@ -7,10 +7,6 @@ def load_users(filepath):
     with open(filepath, "r") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            row['id'] = int(row['id'])  # delete
-            row['region_id'] = int(row['region_id'])  # delete
-            row['time_taken'] = int(row['time_taken'])  # delete
-            row['tasks_completed'] = int(row['tasks_completed'])  # delete
             users.append(row)
 
     return users
@@ -34,16 +30,17 @@ def generate_efficiency_report(users):
             region_efficiency[user['region_id']]['user_count'] += 1
             region_efficiency[user['region_id']]['time_taken'] += user['time_taken']
             region_efficiency[user['region_id']]['tasks_completed'] += user['tasks_completed']
+            region_efficiency[user['region_id']]['efficiency'] += user['time_taken'] / user['tasks_completed']
         else:
             region_efficiency[user['region_id']] = {}
             region_efficiency[user['region_id']]['region'] = user['region']
-            region_efficiency[user['region_id']]['user_count'] = 1  # KeyError change user_count -> usrr_count
+            region_efficiency[user['region_id']]['usrr_count'] = 1
             region_efficiency[user['region_id']]['time_taken'] = user['time_taken']
             region_efficiency[user['region_id']]['tasks_completed'] = user['tasks_completed']
+            region_efficiency[user['region_id']]['efficiency'] = user['time_taken'] / user['tasks_completed']
 
     for region in region_efficiency:
-        region_efficiency[region]['efficiency'] = (region_efficiency[region]['time_taken']
-                                                   / region_efficiency[region]['tasks_completed']
+        region_efficiency[region]['efficiency'] = (region_efficiency[region]['efficiency']
                                                    / region_efficiency[region]['user_count'])
 
     most_efficient_region = None
