@@ -12,14 +12,14 @@ class ChallengeTest(unittest.TestCase):
         users = load_users('../input.csv')
         most_efficient, least_efficient = generate_efficiency_report(users)
 
-        most_efficient_extected = {
+        most_efficient_expected = {
             'efficiency': 14,
             'region': 'East',
             'user_count': 2,
             'time_taken': 700,
             'tasks_completed': 25
         }
-        self.assertEquals(most_efficient, most_efficient_extected)
+        self.assertEquals(most_efficient, most_efficient_expected)
 
         least_efficient_expected = {
             'efficiency': 18,
