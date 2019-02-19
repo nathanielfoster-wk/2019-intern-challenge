@@ -26,8 +26,6 @@ function loadUsers (filepath) {
 function generateEfficiencyReport (users) {
     const regionEfficiency = {};
 
-    users.forEach
-
     for (let i = 0; i < users.length; i++) {
         let user = users[i];
 
