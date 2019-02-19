@@ -13,8 +13,7 @@
     $ source bin/activate
 
 ### Python Testing 
-    $ cd python
-    $ nosetests
+    $ nosetests python/test_challenge.py
 
 ## JS
 
