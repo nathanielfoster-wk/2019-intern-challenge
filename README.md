@@ -9,6 +9,8 @@
 `mkvirtualenv intern-challenge`
 
 ## Python Testing 
+- `cd python`
+- `nosetests`
 
 # JS
 
